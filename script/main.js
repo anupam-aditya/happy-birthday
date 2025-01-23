@@ -9,9 +9,24 @@ const playMusic = () => {
   // Set properties
   bgMusic.loop = true; // Loop the music
   bgMusic.volume = 0.5; // Adjust volume (0.0 to 1.0)
-  bgMusic.play().catch((err) => {
-    console.error("Error playing music:", err);
-  });
+
+  const startMusic = () => {
+    bgMusic
+      .play()
+      .then(() => {
+        console.log("Music started playing");
+        // Remove interaction listeners after music starts
+        document.removeEventListener("click", startMusic);
+        document.removeEventListener("keydown", startMusic);
+      })
+      .catch((err) => {
+        console.error("Error playing music:", err);
+      });
+  };
+
+  // Attach event listeners to trigger playback
+  document.addEventListener("click", startMusic);
+  document.addEventListener("keydown", startMusic);
 
   return bgMusic;
 };
