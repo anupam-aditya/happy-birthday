@@ -1,4 +1,21 @@
 // Import the data to customize and insert them into page
+
+const playMusic = () => {
+  // Use the direct download link from Google Drive
+  const bgMusic = new Audio(
+    "https://res.cloudinary.com/dv4ye97yc/video/upload/v1737649768/ghzgaz7fi5nhnmdetwwm.mp3" // Replace FILE_ID with your file's ID
+  );
+
+  // Set properties
+  bgMusic.loop = true; // Loop the music
+  bgMusic.volume = 0.5; // Adjust volume (0.0 to 1.0)
+  bgMusic.play().catch((err) => {
+    console.error("Error playing music:", err);
+  });
+
+  return bgMusic;
+};
+
 const fetchData = () => {
   fetch("customize.json")
     .then((data) => data.json())
@@ -20,6 +37,7 @@ const fetchData = () => {
         // Check if the iteration is over
         // Run amimation if so
         if (dataArr.length === dataArr.indexOf(customData) + 1) {
+          playMusic();
           animationTimeline();
         }
       });
