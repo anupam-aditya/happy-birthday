@@ -123,6 +123,7 @@ body {
 }
 
 .six .hat {
+  display: none;
   position: absolute;
   width: 80px;
   top: -35px;
