@@ -2,11 +2,11 @@
 
 const playMusic = () => {
   // Use the direct download link from Google Drive
+  console.log("Bal Bal ka hai ye jalwa!");
   const bgMusic = new Audio(
     "https://res.cloudinary.com/dv4ye97yc/video/upload/v1737649768/ghzgaz7fi5nhnmdetwwm.mp3" // Replace FILE_ID with your file's ID
   );
 
-  // Set properties
   bgMusic.loop = true; // Loop the music
   bgMusic.volume = 0.5; // Adjust volume (0.0 to 1.0)
 
